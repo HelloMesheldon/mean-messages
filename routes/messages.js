@@ -15,7 +15,6 @@ router.get('/all', function (req, res, next) {
 });
 
 router.post('/add', function (req, res, next) {
-    console.log(req.body);
     Message.create(req.body, function (err, message) {
         if (err) {
             console.log('Message.create error', err);
