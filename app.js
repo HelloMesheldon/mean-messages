@@ -1,31 +1,50 @@
-//Lets load the mongoose module in our program
-var mongoose = require('mongoose');
+var express = require('express'),
+	bodyParser = require('body-parser'),
+	mongoose = require('mongoose'),
+	app = express(),
+	messages = require('./routes/messages'),
+	Message,
+	message,
+	port = 5555;
 
-//Lets connect to our database using the DB server URL.
-mongoose.connect('mongodb://localhost:27017/messages');
+/* DB Connection*/
+mongoose.connect('mongodb://localhost:27017/messages', function mongooseConnection (err) {
+	if (err) {
+		console.log('Mongo DB connection error', err);
+	} else {
+		console.log('Mongo DB connection successful');
+	}
+});
+
+/* Middleware */
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+/* Routes */
+app.use('/messages', messages);
+
+app.listen(port);
+
+console.log('Messages listening on port', port);
 
 /**
  * Lets define our Model for Message entity. This model represents a collection in the database.
  * We define the possible schema of User document and data types of each field.
  * */
-var Message = mongoose.model('Message', {data: String});
-
-/**
- * Lets Use our Models
- * */
+//Message = mongoose.model('Message', {data: String});
 
 // Lets create a new user
-var message = new Message({data: 'Sample data'});
+//message = new Message({data: 'Sample data'});
 
 // Lets try to print and see it. You will see _id is assigned.
-console.log(message);
+//console.log(message);
 
 // Lets save it
-message.save(function (err, object) {
+/*message.save(function (err, object) {
   if (err) {
     console.log(err);
   } else {
     console.log('saved successfully:', object);
   }
   process.exit(0);
-});
+});*/

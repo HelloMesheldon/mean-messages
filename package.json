@@ -3,6 +3,8 @@
 	"version": "0.0.1",
 	"description": "Messaging service",
 	"dependencies": {
+		"body-parser": "1.13.2",
+		"express": "4.13.1",
 		"mongoose": "4.0.7"
 	}
 }
