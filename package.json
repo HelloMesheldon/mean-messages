@@ -1,0 +1,8 @@
+{
+	"name": "messaging",
+	"version": "0.0.1",
+	"description": "Messaging service",
+	"dependencies": {
+		"mongoose": "4.0.7"
+	}
+}
