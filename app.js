@@ -31,25 +31,3 @@ app.use('/messages', messages);
 app.listen(port);
 
 console.log('Messages listening on port', port);
-
-/**
- * Lets define our Model for Message entity. This model represents a collection in the database.
- * We define the possible schema of User document and data types of each field.
- * */
-//Message = mongoose.model('Message', {data: String});
-
-// Lets create a new user
-//message = new Message({data: 'Sample data'});
-
-// Lets try to print and see it. You will see _id is assigned.
-//console.log(message);
-
-// Lets save it
-/*message.save(function (err, object) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('saved successfully:', object);
-  }
-  process.exit(0);
-});*/
