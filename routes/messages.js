@@ -8,8 +8,7 @@ router.get('/all', function (req, res, next) {
             console.log('Message.find error:', err);
             return next(err);
         } else {
-            console.log('Message.find complete');
-            res.json(messages);
+            res.jsonp(messages);
         }
     });
 });
@@ -20,7 +19,6 @@ router.post('/add', function (req, res, next) {
             console.log('Message.create error', err);
             return next(err);
         } else {
-            console.log('Message.create complete');
             res.json(message);
         }
     });
