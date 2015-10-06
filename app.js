@@ -5,10 +5,11 @@ var express = require('express'),
 	messages = require('./routes/messages'),
 	Message,
 	message,
-	port = 5555;
+	mongoUrl = process.env.MONGO_URL,
+	port = process.env.PORT || 5555;
 
 /* DB Connection*/
-mongoose.connect('mongodb://localhost:27017/messages', function mongooseConnection (err) {
+mongoose.connect(mongoUrl, function mongooseConnection (err) {
 	if (err) {
 		console.log('Mongo DB connection error', err);
 	} else {
