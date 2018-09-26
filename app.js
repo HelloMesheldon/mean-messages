@@ -3,8 +3,6 @@ var express = require('express'),
 	mongoose = require('mongoose'),
 	app = express(),
 	messages = require('./routes/messages'),
-	Message,
-	message,
 	mongoUrl = process.env.MONGO_URL,
 	port = process.env.PORT || 5555;
 
